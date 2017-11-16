@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Topic List</title>
+<link href="../static/css/core.css"
+          th:href="@{/css/core.css}"
+          rel="stylesheet" media="screen" />
+</head>
+<body class="background">
+<div >
+	<h2 align="center"><font color="696969">Topics</font></h2><br/>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a th:href="@{/listOfPackage}">Back</a></p> 
+<form method="GET">
+			
+	<table>
+			
+			<tr>
+				<td><b>Package Name:</b></td>
+				<td th:text="*{packageName}" ></td>
+			</tr>
+	</table><br/>
+		
+		<table>
+			<tr><th>Topic Name</th>	
+			</tr>
+			<tr th:each="topics : ${topiclist}">
+				<td th:text="${topics.topicName}"></td>
+				
+				<td><a th:href="@{/video/videolist/{topicId}(topicId=${topics.topicId})}">
+                <button type="button" class="button">VIEW VIDEO</button></a></td>
+			</tr>
+		</table>
+	</form>
+	
+</div>
+</body>
+</html>

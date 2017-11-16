@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>List of Package</title>
+<link href="../static/css/core.css"
+          th:href="@{/css/core.css}"
+          rel="stylesheet" media="screen" />
+</head>
+<body class="background">
+	<h2 align="center"><font color="696969">Packages</font></h2><br/>
+<form action="#" method="get">
+<table>
+			<tr>
+				<th>Package Name</th>
+				<th>Valid From</th>
+				<th>Validity(in days)</th>
+				<th>Expires On</th>
+			</tr>
+			<tr th:each="packages : ${list}" th:if="${packages.expiresOn &gt; (#dates.createNow())}">
+				<td th:text="${packages.packageName}"></td>
+				<td th:text="${packages.validFrom}"></td>
+				<td th:text="${packages.validTill}"></td>
+				<td th:text="${packages.expiresOn}"></td>
+				<td><a th:href="@{/topic/topiclist/{id}(id=${packages.id})}">
+                <button type="button" class="button">VIEW TOPIC</button></a> </td>
+                
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

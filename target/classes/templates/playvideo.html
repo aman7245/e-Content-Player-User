@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Video Player</title>
+<link href="../static/css/core.css"
+          th:href="@{/css/core.css}"
+          rel="stylesheet" media="screen" />
+          
+</head>
+<body class="background">
+
+<!-- <p><a th:href="@{/video/videolist/{topicId}(topicId=${topics.topicId})}">close</a></p>  -->
+
+<video width="80%" height="90%" controls="controls" autoplay="autoplay">
+  <source th:src="*{sourceLink}" type="video/mp4"/>
+
+</video>
+</body> 
+</html>

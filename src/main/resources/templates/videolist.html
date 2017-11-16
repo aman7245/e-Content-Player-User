@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Video List</title>
+<link href="../static/css/core.css"
+          th:href="@{/css/core.css}"
+          rel="stylesheet" media="screen" />
+          
+<style>
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body class="background">
+
+<h2 align="center"><font color="696969">Videos</font></h2><br/>
+
+<form method="POST"  enctype="multipart/form-data">
+				
+	<table >
+		<tr>
+			<td><b>Topic Name:</b></td>
+			<td th:text = "*{topicName}"></td>
+		</tr>
+    </table><br/>
+    
+    <table>
+		<tr><th>Video Name</th>	
+		</tr>
+		<tr th:each="videos : ${videoList}">
+			<td><a th:text="${videos.videoName}" th:href="@{/video/playvideo/{videoId}(videoId=${videos.videoId})}">
+			</a></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>
